@@ -1,0 +1,25 @@
+int soundPin = 27;
+int ledPin = 2;
+int soundState;
+
+void setup() {
+  pinMode(soundPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+
+  soundState = digitalRead(soundPin);
+
+  if(soundState == HIGH) {
+    Serial.println("Voice Detected");
+    digitalWrite(ledPin, HIGH);
+  }
+  else {
+    Serial.println("No Voice");
+    digitalWrite(ledPin, LOW);
+  }
+
+  delay(200);
+}
